@@ -298,8 +298,13 @@ export function BMIForm({ onCalculate, onReset }: { onCalculate: (r: FormResult)
         </div>
       </div>
 
-      <div className="flex flex-col gap-3 sm:flex-row">
-        <Button type="submit" size="lg" disabled={busy} className="h-13 flex-1 rounded-full text-base">
+      <div className="flex flex-col items-stretch gap-3 sm:flex-row">
+        <Button
+          type="submit"
+          size="lg"
+          disabled={busy}
+          className="h-13 min-h-13 flex-1 rounded-full text-base"
+        >
           <CalcIcon className="size-4" aria-hidden="true" />
           {busy ? "Calculating…" : "Calculate BMI"}
         </Button>
@@ -308,7 +313,7 @@ export function BMIForm({ onCalculate, onReset }: { onCalculate: (r: FormResult)
           variant="outline"
           size="lg"
           onClick={reset}
-          className="h-13 rounded-full sm:w-auto"
+          className="h-13 min-h-13 rounded-full sm:w-auto"
         >
           <RotateCcw className="size-4" aria-hidden="true" />
           Reset
