@@ -20,6 +20,22 @@ npm run dev
 - React
 - Tailwind CSS
 
+## Android APK
+
+The project includes a Capacitor Android wrapper. On Windows with Android Studio
+installed, run the following from PowerShell:
+
+```powershell
+$env:JAVA_HOME = "C:\Program Files\Android\Android Studio\jbr"
+$env:ANDROID_HOME = "$env:LOCALAPPDATA\Android\Sdk"
+$env:ANDROID_SDK_ROOT = $env:ANDROID_HOME
+npm run android:build
+```
+
+The debug APK is generated at
+`android/app/build/outputs/apk/debug/app-debug.apk`. For a signed release APK,
+open the `android` folder in Android Studio and configure a release keystore.
+
 ## Hostinger Node.js hosting
 
 This app is configured as a Node.js web application for Hostinger. Use Node.js 20

@@ -9,7 +9,6 @@ import {
 } from "@tanstack/react-router";
 import { type ReactNode } from "react";
 
-import appIcon from "../icon.png";
 import appCss from "../styles.css?url";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -87,7 +86,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: appIcon, type: "image/png" },
+      { rel: "icon", href: "/icon-padded.svg", type: "image/svg+xml" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

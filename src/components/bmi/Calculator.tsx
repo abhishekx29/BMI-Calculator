@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ShieldCheck, Sparkles } from "lucide-react";
 import { BMIForm, type FormResult } from "./BMIForm";
 import { BMIResult } from "./BMIResult";
 import { BMIHistory } from "./BMIHistory";
@@ -64,6 +65,16 @@ export function Calculator() {
     <div className="mx-auto grid max-w-6xl gap-6 px-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-start">
       <div id="calculator" className="lg:sticky lg:top-8">
         <BMIForm onCalculate={handleCalculate} onReset={clearResult} />
+        <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
+          <li className="flex items-center gap-2">
+            <Sparkles className="size-4 text-primary" aria-hidden="true" /> Instant, accurate
+            results
+          </li>
+          <li className="flex items-center gap-2">
+            <ShieldCheck className="size-4 text-primary" aria-hidden="true" /> Private — stays on
+            your device
+          </li>
+        </ul>
       </div>
 
       <div id="results" className="space-y-6 scroll-mt-8">
