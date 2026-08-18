@@ -7,6 +7,7 @@ const client = path.join(dist, "client");
 const clientAssets = path.join(client, "assets");
 const outputAssets = path.join(dist, "assets");
 const publicDir = path.join(root, "public");
+const sourceIcon = path.join(root, "src", "icon.png");
 const assets = await readdir(clientAssets);
 const javascriptEntry = assets.find((file) => /^index-.*\.js$/.test(file));
 const stylesheet = assets.find((file) => /^styles-.*\.css$/.test(file));
@@ -17,6 +18,7 @@ if (!javascriptEntry || !stylesheet) {
 
 await mkdir(outputAssets, { recursive: true });
 await cp(clientAssets, outputAssets, { recursive: true });
+await cp(sourceIcon, path.join(dist, "favicon.png"), { force: true });
 
 try {
   const publicFiles = await readdir(publicDir, { withFileTypes: true });
@@ -36,7 +38,7 @@ const html = `<!doctype html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Calculate your Body Mass Index and understand your health" />
     <title>BMI Calculator</title>
-    <link rel="icon" href="data:," />
+    <link rel="icon" href="./favicon.png" type="image/png" />
     <link rel="stylesheet" href="./assets/${stylesheet}" />
   </head>
   <body>
