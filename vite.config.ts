@@ -8,9 +8,9 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   base: "./",
-  // Hostinger shared hosting serves static files through Apache, so do not
-  // generate the Nitro server bundle for the production upload.
-  nitro: false,
+  nitro: {
+    preset: "node-server",
+  },
   vite: {
     build: {
       outDir: "dist",

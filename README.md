@@ -20,15 +20,18 @@ npm run dev
 - React
 - Tailwind CSS
 
-## Hostinger hosting
+## Hostinger Node.js hosting
 
-This app is configured for static Apache hosting. Build the production files with:
+This app is configured as a Node.js web application for Hostinger. Use Node.js 20
+or newer in hPanel, then configure the application with these values:
 
-```sh
-npm run build
-```
+- **Application startup file:** `.output/server/index.mjs`
+- **Application root:** the project root containing `package.json`
+- **Build command:** `npm run build`
+- **Start command:** `npm start`
 
-Upload the contents of the generated `dist` folder to your Hostinger document root,
-usually `public_html`. Do not upload the project source folder or the `.output`
-folder. The included `.htaccess` file keeps the app working when the hosting
-provider receives a direct browser request, including client-side routes.
+Hostinger provides the `PORT` environment variable automatically. The generated
+Nitro server listens on that port, so no hard-coded port is needed. Deploy the
+project source with `package.json` and `package-lock.json`; do not upload only
+the `dist` folder. After installing dependencies, run the build command so the
+`.output` directory is generated before starting the application.
